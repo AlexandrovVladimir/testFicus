@@ -1,0 +1,105 @@
+@media screen and (max-width: 1199px) {
+  .header {
+    padding: 1.5rem 0;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .header {
+    padding: 1.5rem 0;
+  }
+
+  .grid__information-img,
+  .grid-audio__image img,
+  .grid-video__image img,
+  .grid-gallery__image img{
+    max-height: 220px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .grid-audio, .grid-video, .grid-gallery {
+    &__item {
+      flex: 0 0 100%;
+    }
+    &__audio {
+      font-size: 14px;
+      font-family: "DINPro", sans-serif;
+      color: rgb(0, 0, 0);
+      line-height: 1.286;
+      img {
+        margin-right: 7.5px;
+      }
+    }
+  }
+
+  .grid__information-img,
+  .grid-audio__image img,
+  .grid-video__image img,
+  .grid-gallery__image img{
+    max-height: 174px;
+  }
+
+  .form form {
+    margin-top: 0;
+    padding: 1.5rem 15px;
+  }
+
+  .header {
+    &__text {
+      display: none;
+    }
+    &__telephone {
+      display: none;
+      &-img {
+        display: inline-block;
+      }
+    }
+    &__right {
+      .header__telephone-img {
+        img {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .grid {
+    display: none;
+  }
+
+  .footer {
+    &__link, &__text {
+      flex: 0 0 100%;
+      text-align: center;
+      margin: 1rem 0;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header__right {
+    img {
+      margin-right: 10px;
+    }
+  }
+
+  .countdown {
+    &__circle {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  .grid-audio__audio img, .grid-video__audio img, .grid-gallery__audio img {
+    width: 100px;
+  }
+}
