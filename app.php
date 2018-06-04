@@ -2,13 +2,14 @@
     $name = $_POST['name'];
     $message = trim($_POST['message']);
 
-    echo var_dump($name);
-
-    if ($name == '') {
-        echo 'Введите имя';
-    } elseif ($message == '') {
-        echo 'Введите сообщение';
+    if ($name === '' && $message === '') {
+        echo 'Заполните поля';
+    } elseif ($name === '') {
+        echo 'Заполните имя';
+    } elseif (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+        echo 'Введите корректное имя';
     } else {
+        mail("dev.alexandrov@gmail.com", "Письмо с сайта", $message);
         echo "1";
     }
 ?>
