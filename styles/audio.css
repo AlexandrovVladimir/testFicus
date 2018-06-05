@@ -1,0 +1,197 @@
+.player {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    border-radius: 2px;
+    margin-right: 20px;
+}
+
+.player-one-left, .player-one-right {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.player img {
+    margin-top: 5px;
+    width: 60px;
+    height: 50px;
+}
+.player .info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 50%;
+    padding: 0 16px;
+}
+.player .info .name {
+    font-size: 15px;
+    font-weight: 700;
+}
+.player .info .singer {
+    font-size: 12px;
+}
+.player .btns {
+    /*width: 50%;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.player .btns div:nth-child(1) {
+    font-size: 30px;
+}
+.player .btns div:nth-child(2),
+.player .btns div:nth-child(3) {
+    font-size: 18px;
+}
+.player .progress {
+    position: absolute;
+    height: 2px;
+    left: 0;
+    top: 0;
+    background-color: #00a8ff;
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url("//static0.qianqian.com/web/st/font/iconfont-4e6.woff") format("woff");
+}
+.iconfont {
+    font-family: iconfont, sans-serif !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-list:before {
+    content: "\e603";
+}
+
+.icon-loop-single:before {
+    content: "\e604";
+}
+
+.icon-arrow-right:before {
+    content: "\e605";
+}
+
+.icon-loop:before {
+    content: "\e606";
+}
+
+.icon-prev:before {
+    content: "\e607";
+}
+
+.icon-favor:before {
+    content: "\e608";
+}
+
+.icon-next:before {
+    content: "\e60a";
+}
+
+.icon-download:before {
+    content: "\e60b";
+}
+
+.icon-search:before {
+    content: "\e60c";
+}
+
+.icon-zhanwei1:before {
+    content: "\e610";
+}
+
+.icon-favor1:before {
+    content: "\e618";
+}
+
+.icon-random:before {
+    content: "\e619";
+}
+
+/*.icon-play:before {*/
+    /*content: "\e616";*/
+/*}*/
+
+.icon-play {
+    background: url("../assets/images/play.png") no-repeat;
+    width: 42px;
+    height: 42px;
+}
+.icon-stop {
+    background: url("../assets/images/stop.png") no-repeat;
+    width: 42px;
+    height: 42px;
+}
+
+/*.icon-stop:before {*/
+    /*content: "\e617";*/
+/*}*/
+
+.icon-mv:before {
+    content: "\e61b";
+}
+
+.icon-arrow-down:before {
+    content: "\e61d";
+}
+
+.icon-arrow-left:before {
+    content: "\e61e";
+}
+
+.icon-arrow-up:before {
+    content: "\e61f";
+}
+
+.icon-listen:before {
+    content: "\e609";
+}
+
+.icon-round:before {
+    content: "\e60d";
+}
+
+.icon-triangle:before {
+    content: "\e60e";
+}
+
+.icon-information:before {
+    content: "\e60f";
+}
+
+.icon-home:before {
+    content: "\e611";
+}
+
+.icon-i:before {
+    content: "\e612";
+}
+
+.icon-information-:before {
+    content: "\e613";
+}
+
+.icon-bubble-filled-icon:before {
+    content: "\e614";
+}
+
+.icon-round-right:before {
+    content: "\e615";
+}
+
+.icon-vip:before {
+    content: "\e61a";
+}
+
+.icon-word:before {
+    content: "\e61c";
+}
+
+@media screen and (max-width: 425px) {
+    .player-one-left, .player-one-right, .player {
+        margin-right: 10px;
+    }
+}

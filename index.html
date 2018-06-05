@@ -8,6 +8,16 @@
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/audio.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--slick countdown plugin-->
+    <script src="scripts/Slick-Circular-jQuery-Countdown-Plugin-Classy-Countdown/js/jquery.classycountdown.js"></script>
+    <script src="scripts/Slick-Circular-jQuery-Countdown-Plugin-Classy-Countdown/js/jquery.knob.js"></script>
+    <script src="scripts/Slick-Circular-jQuery-Countdown-Plugin-Classy-Countdown/js/jquery.throttle.js"></script>
+    <link href="scripts/Slick-Circular-jQuery-Countdown-Plugin-Classy-Countdown/css/jquery.classycountdown.css" rel="stylesheet">
+    <!--slick countdown plugin-->
+
     <title>test page</title>
 </head>
 <body>
@@ -23,10 +33,17 @@
                             </a>
                         </div>
                         <div class="header__right">
-                            <img class="play" src="assets/images/play.png" alt="play">
+                            <!--<img class="play" src="assets/images/play.png" alt="play">-->
+                            <div class='player'>
+                                <div class='btns'>
+                                    <div class="iconfont play-pause icon-play"></div>
+                                </div>
+                            </div>
                             <div class="header__gif gif">
                                 <img class="gif__images" src="assets/images/gif-static.png" alt="play music">
                             </div>
+                            <audio class="stream" src="http://m4m128.hostingradio.ru:8074/m4m128.mp3" controls></audio>
+
                             <a href="tel: 8 800 775 31 37" class="header__telephone">8 800 775 31 37</a>
                             <a href="tel: 8 800 775 31 37" class="header__telephone-img"><img src="assets/images/tel-icon.png" alt="tel icon"></a>
                         </div>
@@ -35,15 +52,10 @@
             </div>
         </div>
     </div>
-    <div class="countdown">
-        <div class="countdown__circle">
-            <div class="countdown__title">До начала осталось</div>
-            <div class="countdown__time">
-                <div class="countdown__days"><span class="countdown__digits">05</span> <span class="countdown__word">дней</span></div>
-                <div class="countdown__hours"><span class="countdown__digits">20</span> <span class="countdown__word">часов</span></div>
-                <div class="countdown__minutes"><span class="countdown__digits">45</span> <span class="countdown__word">минут</span></div>
-            </div>
-        </div>
+
+    <div class="countdown-section">
+        <div class="countdown__title">До начала осталось</div>
+        <div class="countdown"></div>
     </div>
     <div class="content">
         <div class="container">
@@ -108,7 +120,13 @@
                                 <span class="grid__tag">#Газпромнефтьаэро</span>
                                 <span class="grid__tag">#Аэрофм</span>
                                 <div class="grid-audio__audio audio">
-                                    <img src="assets/images/play.png" alt="play">
+                                    <!--<img src="assets/images/play.png" alt="play">-->
+                                    <div class='player-one-left'>
+                                        <div class='btns'>
+                                            <div class="iconfont play-pause icon-play"></div>
+                                        </div>
+                                    </div>
+                                    <audio class="podcast1" src="assets/audio/matrang%20-%20meduza.mp3" controls></audio>
                                     <span class="audio__text">«Газпром нефть» увеличила розничную реализацию авиатоплива за 9 месяцев 2017 года на 17%</span>
                                 </div>
                                 <div class="grid-audio__descr">
@@ -125,7 +143,13 @@
                                 <span class="grid__tag">#Газпромнефтьаэро</span>
                                 <span class="grid__tag">#Аэрофм</span>
                                 <div class="grid-audio__audio audio">
-                                    <img src="assets/images/play.png" alt="play">
+                                    <!--<img src="assets/images/play.png" alt="play">-->
+                                    <div class='player-one-right'>
+                                        <div class='btns'>
+                                            <div class="iconfont play-pause icon-play"></div>
+                                        </div>
+                                    </div>
+                                    <audio class="podcast2" src="assets/audio/him%20-%20for%20you.mp3" controls></audio>
                                     <span class="audio__text">«Газпром нефть» увеличила розничную реализацию авиатоплива за 9 месяцев 2017 года на 17%</span>
                                 </div>
                                 <div class="grid-audio__descr">
@@ -144,8 +168,8 @@
                                 <img class="grid-video__icon" src="assets/images/video-icon.png" alt="audio">
                                 <span class="grid__tag">#Газпромнефтьаэро</span>
                                 <span class="grid__tag">#Аэрофм</span>
-                                <div class="grid-video__audio audio">
-                                    <img src="assets/images/play.png" alt="play">
+                                <div class="grid-video__audio">
+                                    <!--<img src="assets/images/play.png" alt="play">-->
                                     <span class="audio__text">«Газпром нефть» увеличила розничную реализацию авиатоплива за 9 месяцев 2017 года на 17%</span>
                                 </div>
                                 <div class="grid-video__descr">
@@ -161,8 +185,8 @@
                                 <img class="grid-video__icon" src="assets/images/video-icon.png" alt="audio">
                                 <span class="grid__tag">#Газпромнефтьаэро</span>
                                 <span class="grid__tag">#Аэрофм</span>
-                                <div class="grid-video__audio audio">
-                                    <img src="assets/images/play.png" alt="play">
+                                <div class="grid-video__audio">
+                                    <!--<img src="assets/images/play.png" alt="play">-->
                                     <span class="audio__text">«Газпром нефть» увеличила розничную реализацию авиатоплива за 9 месяцев 2017 года на 17%</span>
                                 </div>
                                 <div class="grid-video__descr">
@@ -181,7 +205,7 @@
                                 <img class="grid-gallery__icon" src="assets/images/gallery-icon.png" alt="image">
                                 <span class="grid__tag">#Газпромнефтьаэро</span>
                                 <span class="grid__tag">#Аэрофм</span>
-                                <div class="grid-gallery__audio audio">
+                                <div class="grid-gallery__audio">
                                     <span class="audio__text">«Газпром нефть» увеличила розничную реализацию авиатоплива за 9 месяцев 2017 года на 17%</span>
                                 </div>
                                 <div class="grid-gallery__descr">
@@ -197,7 +221,7 @@
                                 <img class="grid-gallery__icon" src="assets/images/gallery-icon.png" alt="image">
                                 <span class="grid__tag">#Газпромнефтьаэро</span>
                                 <span class="grid__tag">#Аэрофм</span>
-                                <div class="grid-gallery__audio audio">
+                                <div class="grid-gallery__audio">
                                     <span class="audio__text">«Газпром нефть» увеличила розничную реализацию авиатоплива за 9 месяцев 2017 года на 17%</span>
                                 </div>
                                 <div class="grid-gallery__descr">
@@ -219,7 +243,7 @@
                     <div class="footer__content">
                         <a href="#" class="footer__link"><img src="assets/images/logo-white.png" alt="logo"></a>
                         <span class="footer__text">Корпоративный медиапортал<br>АО «ГАЗПРОМНЕФТЬ-АЭРО» </span>
-                        <span class="footer__text text-right">Тех поддержка:<br><a href="mailto: tech@megapolismedia.ru" class="footer__email">tech@megapolismedia.ru</a></span>
+                        <span class="footer__text">Тех поддержка:<br><a href="mailto: tech@megapolismedia.ru" class="footer__email">tech@megapolismedia.ru</a></span>
                     </div>
                 </div>
             </div>
@@ -228,7 +252,6 @@
 
     <div id="modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -239,10 +262,9 @@
             </div>
         </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="scripts/sendForm.js"></script>
+
+    <script src="scripts/common.js"></script>
 </body>
 </html>

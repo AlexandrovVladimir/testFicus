@@ -155,52 +155,186 @@ ul {
 .header__right .play {
     cursor: pointer; }
 
-.countdown {
-    background: url(assets/images/101.jpg) no-repeat left/cover;
+.countdown-section {
+    background: url('assets/images/101.jpg') no-repeat left/cover;
     min-height: 675px;
     position: relative; }
-.countdown__circle {
-    border: 1px dotted #ffffff;
-    border-radius: 50%;
-    position: absolute;
+
+.ClassyCountdown-minutes,
+.ClassyCountdown-hours,
+.ClassyCountdown-days {
+    position: absolute !important;
     left: 50%;
-    top: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    display: -ms-flexbox;
+    transform :translateX(-50%);
+}
+.ClassyCountdown-wrapper {
     display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-.countdown__title {
-    font-size: 18px;
-    font-family: "DINPro", sans-serif;
-    color: white;
-    line-height: 1.2;
-    text-align: center;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%; }
-.countdown__digits {
-    display: block;
-    font-size: 39.559px;
-    font-family: "DINPro", sans-serif;
-    color: white;
-    font-weight: bold;
-    line-height: 0.668;
-    text-align: center; }
-.countdown__word {
-    display: block;
-    text-align: center;
-    padding: 0 0 0.5rem;
-    font-size: 15.384px;
-    font-family: "DINPro", sans-serif;
-    color: white;
-    line-height: 1.716; }
+    align-items: center;
+    height: 100%;
+    min-height: 675px;
+}
+
+.ClassyCountdown-wrapper .ClassyCountdown-value {
+    display: inline-block !important;
+    margin: auto;
+    width: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin-top: 0 !important;
+}
+
+.ClassyCountdown-wrapper .ClassyCountdown-value span {
+    position: relative;
+    top: -13px;
+}
+
+.ClassyCountdown-minutes .ClassyCountdown-value span::before {
+    background-color: #fff;
+    position: absolute;
+    content: '';
+    display: table;
+    width: 60px;
+    height: 1px;
+    top: -11.5px;
+    left: -65px;
+    opacity: 0.2;
+}
+
+.ClassyCountdown-minutes .ClassyCountdown-value span::after {
+    background-color: #fff;
+    position: absolute;
+    content: '';
+    display: table;
+    width: 60px;
+    height: 1px;
+    top: -11.5px;
+    right: -65px;
+    opacity: 0.2;
+}
+
+.ClassyCountdown-hours .ClassyCountdown-value span::before {
+    background-color: #fff;
+    position: absolute;
+    content: '';
+    display: table;
+    width: 60px;
+    height: 1px;
+    top: -11.5px;
+    left: -65px;
+    opacity: 0.2;
+}
+
+.ClassyCountdown-hours .ClassyCountdown-value span::after {
+    background-color: #fff;
+    position: absolute;
+    content: '';
+    display: table;
+    width: 60px;
+    height: 1px;
+    top: -11.5px;
+    right: -65px;
+    opacity: 0.2;
+}
+
+.ClassyCountdown-days .ClassyCountdown-value span::before {
+    background-color: #fff;
+    position: absolute;
+    content: '';
+    display: table;
+    width: 60px;
+    height: 1px;
+    top: -11.5px;
+    left: -65px;
+    opacity: 0.2;
+}
+
+.ClassyCountdown-days .ClassyCountdown-value span::after {
+    background-color: #fff;
+    position: absolute;
+    content: '';
+    display: table;
+    width: 60px;
+    height: 1px;
+    top: -11.5px;
+    right: -60px;
+    opacity: 0.2;
+}
+
+.ClassyCountdown-minutes canvas,
+.ClassyCountdown-hours canvas,
+.ClassyCountdown-days canvas {
+    display: none;
+    /*height: auto !important;*/
+}
+
+.ClassyCountdown-seconds .ClassyCountdown-value,
+.ClassyCountdown-seconds .ClassyCountdown-value div {
+    display: none;
+}
+
+.ClassyCountdown-days .ClassyCountdown-value,
+.ClassyCountdown-hours .ClassyCountdown-value,
+.ClassyCountdown-minutes .ClassyCountdown-value {
+    font-size: 39.559px !important;
+    font-family: "DINPro", sans-serif !important;
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold !important;
+    line-height: 0.668 !important;
+}
+
+.ClassyCountdown-days .ClassyCountdown-value {
+    top: 45% !important;
+}
+.ClassyCountdown-hours .ClassyCountdown-value {
+    top: 60% !important;
+}
+.ClassyCountdown-minutes .ClassyCountdown-value {
+    top: 75% !important;
+}
+
+/*.countdown__circle {*/
+    /*border: 1px dotted #ffffff;*/
+    /*border-radius: 50%;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*transform: translate(-50%, -50%);*/
+    /*width: 400px;*/
+    /*height: 400px;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-ms-flex-align: center;*/
+    /*align-items: center;*/
+    /*-ms-flex-pack: center;*/
+    /*justify-content: center;*/
+    /*-ms-flex-wrap: wrap;*/
+    /*flex-wrap: wrap; }*/
+/*.countdown__title {*/
+    /*font-size: 18px;*/
+    /*font-family: "DINPro", sans-serif;*/
+    /*color: white;*/
+    /*line-height: 1.2;*/
+    /*text-align: center;*/
+    /*-ms-flex: 0 0 100%;*/
+    /*flex: 0 0 100%; }*/
+/*.countdown__digits {*/
+    /*display: block;*/
+    /*font-size: 39.559px;*/
+    /*font-family: "DINPro", sans-serif;*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*line-height: 0.668;*/
+    /*text-align: center; }*/
+/*.countdown__word {*/
+    /*display: block;*/
+    /*text-align: center;*/
+    /*padding: 0 0 0.5rem;*/
+    /*font-size: 15.384px;*/
+    /*font-family: "DINPro", sans-serif;*/
+    /*color: white;*/
+    /*line-height: 1.716; }*/
 
 .form form {
     box-shadow: 0 5px 50px 0 rgba(210, 210, 210, 0.35);
@@ -305,6 +439,9 @@ ul {
     justify-content: space-between;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
+.grid-gallery {
+    justify-content: center;
+}
 .grid-audio__item, .grid-video__item, .grid-gallery__item {
     -ms-flex: 0 0 49%;
     flex: 0 0 49%;
@@ -371,6 +508,16 @@ ul {
     color: #ffffff;
     font-family: "Myriad Pro", sans-serif; }
 
+.stream,
+.podcast1,
+.podcast2 {
+    display: none;
+}
+
+.footer__text:last-child {
+    text-align: right;
+}
+
 @media screen and (max-width: 1199px) {
     .header {
         padding: 1.5rem 0; } }
@@ -419,6 +566,9 @@ ul {
         text-align: center;
         margin: 1rem 0; } }
 
+    .footer__text:last-child {
+        text-align: center;
+    }
 @media screen and (max-width: 425px) {
     .header__right img {
         margin-right: 10px; }
