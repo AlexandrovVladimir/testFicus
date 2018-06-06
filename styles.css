@@ -160,6 +160,23 @@ ul {
     min-height: 675px;
     position: relative; }
 
+.countdown__title {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    font-family: "DINPro", sans-serif !important;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
 .ClassyCountdown-minutes,
 .ClassyCountdown-hours,
 .ClassyCountdown-days {
@@ -517,6 +534,12 @@ ul {
 .footer__text:last-child {
     text-align: right;
 }
+@media screen and (max-width: 1400px) {
+    .ClassyCountdown-days .ClassyCountdown-value,
+    .ClassyCountdown-hours .ClassyCountdown-value,
+    .ClassyCountdown-minutes .ClassyCountdown-value {
+    }
+}
 
 @media screen and (max-width: 1199px) {
     .header {
@@ -564,18 +587,51 @@ ul {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         text-align: center;
-        margin: 1rem 0; } }
+        margin: 1rem 0; }
+
+    .countdown-section canvas {
+        width: 320px !important;
+        height: 320px !important;
+    }
+    .ClassyCountdown-wrapper > div {
+        width: auto !important;
+    }
+
+    .ClassyCountdown-hours .ClassyCountdown-value {
+        top: 40px !important;
+    }
+
+    .ClassyCountdown-minutes .ClassyCountdown-value {
+        top: 90px !important;
+    }
+
+    .ClassyCountdown-days .ClassyCountdown-value {
+        top: -10px !important;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .header__right img {
+        margin-right: 10px;
+    }
+
+    .countdown__circle {
+        width: 300px;
+        height: 300px;
+    }
 
     .footer__text:last-child {
         text-align: center;
     }
-@media screen and (max-width: 425px) {
-    .header__right img {
-        margin-right: 10px; }
-    .countdown__circle {
-        width: 300px;
-        height: 300px; } }
+}
 
+@media screen and (max-width: 350px) {
+    .countdown-section canvas {
+        width: 300px !important;
+        height: 300px !important;
+    }
+}
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {

@@ -89,13 +89,15 @@
                     bgColor: "rgba(255,255,255,0.05)",
                     fgColor: "#fff"
                 },
-            }
+            },
+            transition: ''
         },
     });
     //countdown
 
     // audio stream
     $(function(){
+        let musicArr = $('.audio');
         let stream = $('audio')[0];
         let podcastAudioLeft = $('audio')[1];
         let podcastAudioRight = $('audio')[2];
@@ -105,9 +107,15 @@
             if ($(this).parent().parent().attr('class') === $('.player').attr('class')) {
                 if (stream.paused) {
                     stream.play();
+                    $('.player').next().find('img').attr('src', 'assets/images/11.gif');
+
+                    podcastAudioRight.pause();
+                    podcastAudioLeft.pause();
+                    $('.play-pause').removeClass('icon-stop');
+                    $('.play-pause').addClass('icon-play');
+
                     $(this).removeClass('icon-play');
                     $(this).addClass('icon-stop');
-                    $('.player').next().find('img').attr('src', 'assets/images/11.gif');
                 }
                 else {
                     stream.pause();
@@ -118,8 +126,15 @@
             } else if ($(this).parent().parent().attr('class') === $('.player-one-left').attr('class')) {
                 if (podcastAudioLeft.paused) {
                     podcastAudioLeft.play();
+
+                    podcastAudioRight.pause();
+                    stream.pause();
+                    $('.play-pause').removeClass('icon-stop');
+                    $('.play-pause').addClass('icon-play');
+
                     $(this).removeClass('icon-play');
                     $(this).addClass('icon-stop');
+                    $('.player').next().find('img').attr('src', 'assets/images/gif-static.png');
                 }
                 else {
                     podcastAudioLeft.pause();
@@ -129,8 +144,15 @@
             } else if ($(this).parent().parent().attr('class') === $('.player-one-right').attr('class')) {
                 if (podcastAudioRight.paused) {
                     podcastAudioRight.play();
+
+                    podcastAudioLeft.pause();
+                    stream.pause();
+                    $('.play-pause').removeClass('icon-stop');
+                    $('.play-pause').addClass('icon-play');
+
                     $(this).removeClass('icon-play');
                     $(this).addClass('icon-stop');
+                    $('.player').next().find('img').attr('src', 'assets/images/gif-static.png');
                 }
                 else {
                     podcastAudioRight.pause();
@@ -139,8 +161,6 @@
                 }
             }
         });
-
-
     });
     // audio stream
 
