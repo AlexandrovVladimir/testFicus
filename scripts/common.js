@@ -7,9 +7,7 @@
 
     sendBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
         let params = 'name=' + nameText.value + '&' + 'message=' + messageText.value;
-
 
         ajaxPost(params);
 
@@ -42,7 +40,6 @@
         xhr.send(params);
     }
     // send form
-
     //anchor top
     const footerLink = document.querySelector('.footer__link');
 
@@ -102,11 +99,11 @@
         let podcastAudioLeft = $('audio')[1];
         let podcastAudioRight = $('audio')[2];
 
-
         $('.play-pause').on('click', function() {
             if ($(this).parent().parent().attr('class') === $('.player').attr('class')) {
                 if (stream.paused) {
                     stream.play();
+                    stream.currentTimer = 0;
                     $('.player').next().find('img').attr('src', 'assets/images/11.gif');
 
                     podcastAudioRight.pause();
@@ -163,6 +160,38 @@
         });
     });
     // audio stream
+
+    // video stream
+    let videoItems = document.querySelectorAll('.grid-video__item');
+
+
+
+    for (let i = 0; i < videoItems.length; i++) {
+        let videoItem = videoItems[i];
+        let btnPlay = videoItem.querySelector('.play-video__link');
+
+        btnPlay.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            if(this.nextElementSibling.paused) {
+                this.nextElementSibling.play();
+                this.nextElementSibling.currentTime = 0;
+                this.style.display = 'none';
+                this.classList.add('pause-video__link');
+            }
+            else {
+                this.nextElementSibling.pause();
+                this.classList.remove('pause-video__link');
+                this.style.display = 'block';
+            }
+            return false;
+
+        });
+    }
+
+
+
+    // video stream
 
 
 })();
