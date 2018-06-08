@@ -40,6 +40,7 @@
         xhr.send(params);
     }
     // send form
+
     //anchor top
     const footerLink = document.querySelector('.footer__link');
 
@@ -92,79 +93,107 @@
     });
     //countdown
 
-    // audio stream
-    $(function(){
-        let musicArr = $('.audio');
-        let stream = $('audio')[0];
-        let podcastAudioLeft = $('audio')[1];
-        let podcastAudioRight = $('audio')[2];
+    // audio video
+    const playStream = document.querySelector('.header .iconfont');
+    const streamGif = document.querySelector('.gif__images');
+    const audioItems = document.querySelectorAll('.grid-audio__item');
+    const videoItems = document.querySelectorAll('.grid-video__item');
+    const allVideo = document.querySelectorAll('.video-static');
+    const allAudioContent = document.querySelectorAll('.content audio');
+    const stream = document.querySelector('.header .stream');
+    const podcasts = document.querySelectorAll('.content .audio');
 
-        $('.play-pause').on('click', function() {
-            if ($(this).parent().parent().attr('class') === $('.player').attr('class')) {
-                if (stream.paused) {
-                    stream.play();
-                    stream.currentTimer = 0;
-                    $('.player').next().find('img').attr('src', 'assets/images/11.gif');
+    let originalSourceUrl = stream.getAttribute('src');
 
-                    podcastAudioRight.pause();
-                    podcastAudioLeft.pause();
-                    $('.play-pause').removeClass('icon-stop');
-                    $('.play-pause').addClass('icon-play');
+    playStream.addEventListener('click', () => {
+        if (stream.src) {
+            if (stream.paused || stream.ended) {
+                //pause all video
+                allVideo.forEach(function(item) {
+                    item.pause();
+                    if (item.currentTime) item.currentTime = 0;
+                    item.previousElementSibling.classList.remove('pause-video__link');
+                    item.previousElementSibling.style.display = 'block';
+                });
+                //pause all video
 
-                    $(this).removeClass('icon-play');
-                    $(this).addClass('icon-stop');
+                //pause all audioContent
+                allAudioContent.forEach(function (item) {
+                    item.pause();
+                    if (item.currentTime) item.currentTime = 0;
+                    item.previousElementSibling.querySelector('.iconfont').classList.remove('icon-stop');
+                });
+                //pause all audioContent
+
+                // Change the button to a pause button
+                //пересоздаем стрим
+                if (!stream.getAttribute('src')) {
+                    stream.setAttribute('src', originalSourceUrl);
+                    stream.load();
                 }
-                else {
-                    stream.pause();
-                    $(this).removeClass('icon-stop');
-                    $(this).addClass('icon-play');
-                    $('.player').next().find('img').attr('src', 'assets/images/gif-static.png');
-                }
-            } else if ($(this).parent().parent().attr('class') === $('.player-one-left').attr('class')) {
-                if (podcastAudioLeft.paused) {
-                    podcastAudioLeft.play();
+                stream.play();
 
-                    podcastAudioRight.pause();
-                    stream.pause();
-                    $('.play-pause').removeClass('icon-stop');
-                    $('.play-pause').addClass('icon-play');
-
-                    $(this).removeClass('icon-play');
-                    $(this).addClass('icon-stop');
-                    $('.player').next().find('img').attr('src', 'assets/images/gif-static.png');
-                }
-                else {
-                    podcastAudioLeft.pause();
-                    $(this).removeClass('icon-stop');
-                    $(this).addClass('icon-play');
-                }
-            } else if ($(this).parent().parent().attr('class') === $('.player-one-right').attr('class')) {
-                if (podcastAudioRight.paused) {
-                    podcastAudioRight.play();
-
-                    podcastAudioLeft.pause();
-                    stream.pause();
-                    $('.play-pause').removeClass('icon-stop');
-                    $('.play-pause').addClass('icon-play');
-
-                    $(this).removeClass('icon-play');
-                    $(this).addClass('icon-stop');
-                    $('.player').next().find('img').attr('src', 'assets/images/gif-static.png');
-                }
-                else {
-                    podcastAudioRight.pause();
-                    $(this).removeClass('icon-stop');
-                    $(this).addClass('icon-play');
-                }
+                streamGif.setAttribute('src', 'assets/images/11.gif');
+                document.querySelector('.header .play-pause').classList.remove('icon-play');
+                document.querySelector('.header .play-pause').classList.add('icon-stop');
             }
-        });
+            else {
+                // Change the button to a play button
+                stream.setAttribute('src', '');
+                stream.pause();
+                setTimeout(function () {
+                    stream.load();
+                });
+                streamGif.setAttribute('src', 'assets/images/gif-static.png');
+                document.querySelector('.header .play-pause').classList.remove('icon-stop');
+                document.querySelector('.header .play-pause').classList.add('icon-play');
+            }
+        }
     });
-    // audio stream
 
-    // video stream
-    let videoItems = document.querySelectorAll('.grid-video__item');
+    for (let i = 0; i < audioItems.length; i++) {
+        let audioItem = audioItems[i];
+        let btnPlay = audioItem.querySelector('.content .iconfont');
 
+        btnPlay.addEventListener('click', function (e) {
+            e.preventDefault();
 
+            let podcastOne = this.parentElement.parentElement.nextElementSibling;
+
+            if (podcastOne.paused || podcastOne.ended) {
+                // Change the button to a pause button
+                allAudioContent.forEach(function (item) {
+                    item.pause();
+                    item.previousElementSibling.querySelector('.iconfont').classList.remove('icon-stop');
+                });
+
+                //pause audio stream
+                stream.pause();
+                streamGif.setAttribute('src', 'assets/images/gif-static.png');
+                document.querySelector('.header .play-pause').classList.remove('icon-stop');
+                document.querySelector('.header .play-pause').classList.add('icon-play');
+                //pause audio stream
+
+                //pause all video
+                allVideo.forEach(function(item) {
+                    item.pause();
+                    if (item.currentTime) item.currentTime = 0;
+                    item.previousElementSibling.classList.remove('pause-video__link');
+                    item.previousElementSibling.style.display = 'block';
+                });
+                //pause all video
+
+                podcastOne.play();
+                this.classList.add('icon-stop');
+            }
+            else {
+                podcastOne.pause();
+                this.classList.remove('icon-stop');
+                this.classList.add('icon-play');
+            }
+
+        });
+    }
 
     for (let i = 0; i < videoItems.length; i++) {
         let videoItem = videoItems[i];
@@ -172,15 +201,42 @@
 
         btnPlay.addEventListener('click', function(e) {
             e.preventDefault();
+            if (this.nextElementSibling.paused) {
 
-            if(this.nextElementSibling.paused) {
+                //pause audio stream
+                stream.pause();
+                streamGif.setAttribute('src', 'assets/images/gif-static.png');
+                document.querySelector('.header .play-pause').classList.remove('icon-stop');
+                document.querySelector('.header .play-pause').classList.add('icon-play');
+                //pause audio stream
+
+                //pause all video
+                allVideo.forEach(function(item) {
+                    item.pause();
+                    if (item.currentTime) item.currentTime = 0;
+                    item.previousElementSibling.classList.remove('pause-video__link');
+                    item.previousElementSibling.style.display = 'block';
+                });
+                //pause all video
+
+                //pause all audioContent
+                allAudioContent.forEach(function (item) {
+                    item.pause();
+                    if (item.currentTime) item.currentTime = 0;
+                    item.previousElementSibling.querySelector('.iconfont').classList.remove('icon-stop');
+                });
+                //pause all audioContent
+
                 this.nextElementSibling.play();
-                this.nextElementSibling.currentTime = 0;
                 this.style.display = 'none';
                 this.classList.add('pause-video__link');
+                //pause all video
+
+
             }
             else {
                 this.nextElementSibling.pause();
+                if (this.nextElementSibling.currentTime) this.nextElementSibling.currentTime = 0;
                 this.classList.remove('pause-video__link');
                 this.style.display = 'block';
             }
@@ -188,10 +244,7 @@
 
         });
     }
-
-
-
-    // video stream
+    // audio video
 
 
 })();

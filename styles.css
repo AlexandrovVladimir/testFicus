@@ -699,6 +699,11 @@ video {
     .ClassyCountdown-days .ClassyCountdown-value {
         top: -10px !important;
     }
+
+    .footer__text:last-child {
+        text-align: center;
+    }
+
 }
 
 
